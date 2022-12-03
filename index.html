@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .loader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .loader-container img {
+        width: 5rem;
+        height: auto;
+      }
+      .potion {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      @keyframes fill-potion {
+        0% {
+          height: 0.5rem;
+        }
+        25% {
+          min-height: 1rem;
+        }
+        50% {
+          height: 2rem;
+        }
+        100% {
+          height: 3rem;
+        }
+      }
+      .loader-container h3 {
+        margin-top: 0.5rem;
+      }
+      .liquid {
+        width: 3rem;
+        height: 0rem;
+        background-color: purple;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        animation: fill-potion 4s ease-in-out infinite;
+      }
+
+      @keyframes pop {
+        to {
+          opacity: 0;
+        }
+      }
+      img.buble2 {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        right: 0.7rem;
+        padding: 0;
+        width: 0.5rem;
+        height: auto;
+        animation: pop 1s 300ms infinite;
+      }
+      img.buble3 {
+        margin-left: 1.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0;
+        width: 0.5rem;
+        height: auto;
+        animation: pop 1s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader-container">
+      <img class="buble3" src="./buble2.svg" />
+
+      <div class="potion">
+        <img src="./potion.svg" />
+        <img class="buble2" src="./buble2.svg" />
+
+        <div class="liquid"></div>
+      </div>
+      <h3>Loading</h3>
+    </div>
+  </body>
+</html>
